@@ -1,35 +1,17 @@
 # fotomodno-website
 
-This template should help get you started developing with Vue 3 in Vite.
+**The world's first natural magazine**
 
-## Recommended IDE Setup
+This project is designed to showcase Fotomodno's new magazine website—a modern, aggressive, and naturally beautiful static site built with Vue 3 and Tailwind CSS. It also demonstrates advanced cloud engineering practices for hosting, security, CI/CD, and more.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Overview
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+This repository contains the code for Fotomodno's magazine website. The project is a demonstration of cutting-edge cloud engineering skills, aimed at creating a visually stunning, high-performance product while showcasing best practices.
 
 ## Project Setup
 
+### Install Dependencies
+
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
