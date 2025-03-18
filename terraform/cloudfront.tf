@@ -8,7 +8,7 @@ resource "aws_cloudfront_distribution" "static_site_cdn" {
     custom_origin_config {
       http_port              = 80
       https_port             = 443
-      origin_protocol_policy = "http-only"  # S3 website endpoints support HTTP only
+      origin_protocol_policy = "http-only"
       origin_ssl_protocols   = ["TLSv1.2"]
     }
   }
@@ -33,6 +33,12 @@ resource "aws_cloudfront_distribution" "static_site_cdn" {
   }
 
   price_class = "PriceClass_100"
+
+  logging_config {
+    bucket         = aws_s3_bucket.cloudfront_logs.bucket_domain_name
+    include_cookies = false
+    prefix         = "cloudfront-logs/"
+  }
 
   restrictions {
     geo_restriction {
