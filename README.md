@@ -66,3 +66,25 @@ This proves the site can be hosted on multiple clouds with minimal changes, enha
 **Articles Page**
 
 ![Articles Page](./docs/screenshots/articles.png)
+
+## Case Study & Lessons Learned
+
+### Motivation
+
+I built Fotomodno to explore how unedited photography can celebrate natural beauty in a magazine-like format. Beyond the aesthetic goal, this project also served as a chance to demonstrate advanced cloud skills—provisioning infrastructure with Terraform, automating deployments via GitHub Actions, and hosting in multiple clouds.
+
+### Key Challenges
+
+- **Vue Router & History Mode:** Direct refreshes on sub-routes (e.g., `/about`) can 404 unless you configure a rewrite or switch to hash mode.
+- **CloudFront Invalidation:** Ensuring updated files are served immediately required automating `aws cloudfront create-invalidation`.
+- **GCS Limitations:** Google Cloud Storage static hosting doesn’t support path rewriting by default, which led to partial solutions or acceptance of 404 on refresh.
+- **Security & Access Control:** Managing S3 bucket policies, CloudFront logging, and GCS public access required careful IAM setup.
+
+### Solutions
+
+- **Terraform for Infrastructure:** Wrote `.tf` files to define S3, CloudFront, logging buckets, and IAM roles. This guaranteed consistent, repeatable environments.
+- **GitHub Actions CI/CD:** Automated build-and-deploy on each push to `main`, including a step to invalidate CloudFront for fresh content. (Optional step to sync with GCS.)
+- **Rewrite Approaches:** Used `-m index.html -e index.html` on AWS S3 to support SPA routes. For GCS, either accepted partial 404 or recommended hash mode.
+- **Multi-Cloud Approach:** Demonstrated the same static files can live on AWS and GCS, proving portability and resiliency across providers.
+
+Overall, Fotomodno provided a valuable learning experience in bridging modern front-end development with advanced cloud engineering practices, culminating in a polished, multi-cloud-ready project.
