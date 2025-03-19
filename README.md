@@ -61,7 +61,8 @@ This proves the site can be hosted on multiple clouds with minimal changes, enha
 
 **Testimonials Page**
 
-![Testimonials Page](.docs/screenshots/testimonials.png)
+![Testimonials Page](./docs/screenshots/testimonials.png)
 
 **Articles Page**
-![Articles Page](.docs/screenshots/articles.png)
+
+![Articles Page](./docs/screenshots/articles.png)
